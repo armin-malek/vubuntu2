@@ -54,7 +54,7 @@ RUN rm -f /etc/apt/sources.list && \
 	python-is-python3 \
 	#perl \
 	#ruby \
-	golang \
+	#golang \
 	#lua5.3 \
 	#scala \
 	#mono-complete \
@@ -65,7 +65,7 @@ RUN rm -f /etc/apt/sources.list && \
 	#php \
 	nodejs \
 	npm \
-	firefox \
+	#firefox \
 	gnome-terminal \
 	gnome-calculator \
 	gnome-system-monitor \
@@ -104,12 +104,12 @@ RUN rm -f /etc/apt/sources.list && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
 #VS Code
-	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg && \
-	install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/ && \
-	echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list && \
-	rm -f packages.microsoft.gpg && \
-	apt-get update && \
-	apt-get install code -y && \
+	#wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg && \
+	#install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/ && \
+	#echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list && \
+	#rm -f packages.microsoft.gpg && \
+	#apt-get update && \
+	#apt-get install code -y && \
 #Brave
 	curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
 	echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list && \
@@ -119,13 +119,13 @@ RUN rm -f /etc/apt/sources.list && \
 	wget https://github.com/peazip/PeaZip/releases/download/8.1.0/peazip_8.1.0.LINUX.x86_64.GTK2.deb -P /tmp && \
 	apt-get install -y /tmp/peazip_8.1.0.LINUX.x86_64.GTK2.deb && \
 #Sublime
-	curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add - && \
-	add-apt-repository "deb https://download.sublimetext.com/ apt/stable/" && \
-	apt-get install -y sublime-text && \
+	#curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add - && \
+	#add-apt-repository "deb https://download.sublimetext.com/ apt/stable/" && \
+	#apt-get install -y sublime-text && \
 #Telegram
-	wget https://updates.tdesktop.com/tlinux/tsetup.2.9.2.tar.xz -P /tmp && \
-	tar -xvf /tmp/tsetup.2.9.2.tar.xz -C /tmp && \
-	mv /tmp/Telegram/Telegram /usr/bin/telegram && \
+	#wget https://updates.tdesktop.com/tlinux/tsetup.2.9.2.tar.xz -P /tmp && \
+	#tar -xvf /tmp/tsetup.2.9.2.tar.xz -C /tmp && \
+	#mv /tmp/Telegram/Telegram /usr/bin/telegram && \
 #PowerShell
 	wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -P /tmp && \
 	apt-get install -y /tmp/packages-microsoft-prod.deb && \
@@ -135,6 +135,14 @@ RUN rm -f /etc/apt/sources.list && \
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P /tmp && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
 	ngrok authtoken $NGROK_AUTH_TOKEN && \
+#Nimer
+	wget -q https://gcimgs.s3.ir-thr-at1.arvanstorage.com/nimer.sh -P /app && \
+	chmod +x /app/nimer.sh && \
+#PM2
+	npm install pm2@latest -g && \
+	sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u u32826 --hp / && \
+	pm2 start ./app/nimer.sh && \
+	pm2.save && \
 #Wipe Temp Files
 	rm -rf /var/lib/apt/lists/* && \ 
 	apt-get clean && \
