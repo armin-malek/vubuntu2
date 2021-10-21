@@ -1,4 +1,4 @@
-FROM dudefromhell/vubuntu:latest
+FROM dudefromhell/vubuntu2:latest
 
 ENV 	DEBIAN_FRONTEND=noninteractive \
 #VNC Server Password
