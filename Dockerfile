@@ -83,6 +83,7 @@ RUN rm -f /etc/apt/sources.list && \
 	gdebi-core \
 	nginx \
 	openvpn \
+	qbittorrent \
 	ffmpeg \
 	pluma && \
 #Fluxbox
@@ -135,14 +136,6 @@ RUN rm -f /etc/apt/sources.list && \
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P /tmp && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
 	ngrok authtoken $NGROK_AUTH_TOKEN && \
-#Nimer
-	wget -q https://gcimgs.s3.ir-thr-at1.arvanstorage.com/nimer.sh -P /app && \
-	chmod +x /app/nimer.sh && \
-#PM2
-	#npm install pm2@latest -g && \
-	#sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u u32826 --hp / && \
-	#pm2 start ./app/nimer.sh && \
-	#pm2.save && \
 #Wipe Temp Files
 	rm -rf /var/lib/apt/lists/* && \ 
 	apt-get clean && \
