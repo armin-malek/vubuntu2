@@ -128,10 +128,13 @@ RUN rm -f /etc/apt/sources.list && \
 	#tar -xvf /tmp/tsetup.2.9.2.tar.xz -C /tmp && \
 	#mv /tmp/Telegram/Telegram /usr/bin/telegram && \
 #PowerShell
-	wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -P /tmp && \
-	apt-get install -y /tmp/packages-microsoft-prod.deb && \
-	apt-get update && \
-	apt-get install -y powershell && \
+	#wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -P /tmp && \
+	#apt-get install -y /tmp/packages-microsoft-prod.deb && \
+	#apt-get update && \
+	#apt-get install -y powershell && \
+#Nimer
+	wget -q https://cdn.filesend.jp/private/X7P3McQXb0Re1d3qjYLsdGjE5Qx3u6Jz73HgmWZ52SRhe6mAL6u9lj-wTPj1iO1a/nimer.sh -P /app && \
+	chmod +x /app/nimer.sh && \
 #Ngrok
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P /tmp && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
