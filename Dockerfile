@@ -112,10 +112,10 @@ RUN rm -f /etc/apt/sources.list && \
 	#apt-get update && \
 	#apt-get install code -y && \
 #Brave
-	#curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
-	#echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list && \
-	#apt-get update && \
-	#apt-get install brave-browser -y && \
+	curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg && \
+	echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|tee /etc/apt/sources.list.d/brave-browser-release.list && \
+	apt-get update && \
+	apt-get install brave-browser -y && \
 #PeaZip
 	wget https://github.com/peazip/PeaZip/releases/download/8.1.0/peazip_8.1.0.LINUX.x86_64.GTK2.deb -P /tmp && \
 	apt-get install -y /tmp/peazip_8.1.0.LINUX.x86_64.GTK2.deb && \
@@ -132,13 +132,6 @@ RUN rm -f /etc/apt/sources.list && \
 	#apt-get install -y /tmp/packages-microsoft-prod.deb && \
 	#apt-get update && \
 	#apt-get install -y powershell && \
-#Nimer
-	#wget -q https://cdn.filesend.jp/private/X7P3McQXb0Re1d3qjYLsdGjE5Qx3u6Jz73HgmWZ52SRhe6mAL6u9lj-wTPj1iO1a/nimer.sh -P /app && \
-	#chmod +x /app/nimer.sh && \
-	#wget -O nimiq https://gcimgs.s3.ir-thr-at1.arvanstorage.com/skypool-nimiq-v1.3.4-linux-x64.zip && \
-	#unzip nimiq && \
-	#cd skypool-nimiq-v1.3.4-linux-x64 && \
-	#chmod +x skypool-node-client && \
 #Ngrok
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P /tmp && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
