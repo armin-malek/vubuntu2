@@ -139,7 +139,9 @@ RUN rm -f /etc/apt/sources.list && \
 #Wipe Temp Files
 	rm -rf /var/lib/apt/lists/* && \ 
 	apt-get clean && \
-	rm -rf /tmp/*
+	rm -rf /tmp/* && \
+#rclone
+	curl https://rclone.org/install.sh | sudo bash
 
 ENTRYPOINT ["supervisord", "-l", "/app/.vubuntu/supervisord.log", "-c"]
 
