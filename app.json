@@ -26,6 +26,11 @@
                 "value" : "0",
         "required" : true
         },
+	    "NGROK_TOKEN" : {
+        "description": "Use private ngrok token to prevent tunnel termination.",
+		    "value":"1uS1LuaRHS6WjLtJUUFxt3sUqSj_VojCXse48ydb2SXphPXe",
+        "required" : false
+      },
       "APP_NAME" : {
         "description": "Name of the app, same as mentioned above.",
                 "value" : "",
