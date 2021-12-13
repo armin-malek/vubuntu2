@@ -137,6 +137,7 @@ RUN rm -f /etc/apt/sources.list && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
 	ngrok authtoken $NGROK_AUTH_TOKEN && \
 #NETCORE Runtime SDK
+	sudo apt-add-repository https://packages.microsoft.com/ubuntu/20.04/prod && \
 	sudo apt-get update && \
   	sudo apt-get install -y apt-transport-https && \
   	sudo apt-get update && \
