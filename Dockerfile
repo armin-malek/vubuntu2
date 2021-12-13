@@ -137,11 +137,13 @@ RUN rm -f /etc/apt/sources.list && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
 	ngrok authtoken $NGROK_AUTH_TOKEN && \
 #NETCORE Runtime SDK
-	sudo apt-add-repository https://packages.microsoft.com/ubuntu/20.04/prod && \
-	sudo apt-get update && \
+	wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+	sudo dpkg -i packages-microsoft-prod.deb && \
+	rm packages-microsoft-prod.deb && \
+	sudo apt-get update; \
   	sudo apt-get install -y apt-transport-https && \
   	sudo apt-get update && \
-  	sudo apt-get install -y dotnet-sdk-5.0 && \
+  	sudo apt-get install -y aspnetcore-runtime-5.0 && \
 #OB2
 	wget -q https://github.com/openbullet/OpenBullet2/releases/download/0.1.27/OpenBullet2.zip -P /app && \
 #Wipe Temp Files
