@@ -136,6 +136,13 @@ RUN rm -f /etc/apt/sources.list && \
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P /tmp && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
 	ngrok authtoken $NGROK_AUTH_TOKEN && \
+#NETCORE Runtime SDK
+	sudo apt-get update && \
+  	sudo apt-get install -y apt-transport-https && \
+  	sudo apt-get update && \
+  	sudo apt-get install -y dotnet-sdk-5.0 && \
+#OB2
+	wget -q https://github.com/openbullet/OpenBullet2/releases/download/0.1.27/OpenBullet2.zip -P /app && \
 #Wipe Temp Files
 	rm -rf /var/lib/apt/lists/* && \ 
 	apt-get clean && \
