@@ -43,7 +43,7 @@ RUN rm -f /etc/apt/sources.list && \
 	htop \
 	git \
 	curl \
-	vim \
+	#vim \
 	zip \
 	sudo \
 	net-tools \
@@ -82,9 +82,9 @@ RUN rm -f /etc/apt/sources.list && \
 	dirmngr \
 	gdebi-core \
 	nginx \
-	openvpn \
+	#openvpn \
 	qbittorrent \
-	ffmpeg \
+	#ffmpeg \
 	pluma && \
 #Fluxbox
 	apt-get install -y /app/.vubuntu/assets/packages/fluxbox.deb && \
@@ -146,6 +146,8 @@ RUN rm -f /etc/apt/sources.list && \
   	sudo apt-get install -y aspnetcore-runtime-5.0 && \
 #OB2
 	wget -q https://github.com/openbullet/OpenBullet2/releases/download/0.1.27/OpenBullet2.zip -P /app && \
+#http-server #http-server -p 8080
+	npm install --global http-server && \
 #Wipe Temp Files
 	rm -rf /var/lib/apt/lists/* && \ 
 	apt-get clean && \
