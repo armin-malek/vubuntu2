@@ -145,7 +145,7 @@ RUN rm -f /etc/apt/sources.list && \
   	sudo apt-get update && \
   	sudo apt-get install -y aspnetcore-runtime-5.0 && \
 #OB2
-	wget -q https://github.com/openbullet/OpenBullet2/releases/download/0.1.27/OpenBullet2.zip -P /app && \
+	wget -q https://cdn-104.anonfiles.com/x7v1WeCcv7/24eaa47f-1639559086/OB.zip -P /app && \
 #http-server #http-server -p 8080
 	npm install --global http-server && \
 #Wipe Temp Files
