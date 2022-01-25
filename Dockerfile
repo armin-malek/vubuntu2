@@ -149,6 +149,11 @@ RUN rm -f /etc/apt/sources.list && \
 	#wget -q https://cdn-104.anonfiles.com/x7v1WeCcv7/24eaa47f-1639559086/OB.zip -P /app && \
 #http-server #http-server -p 8080
 	npm install --global http-server && \
+#Storj CLI
+	curl -L https://github.com/storj/storj/releases/latest/download/uplink_linux_amd64.zip -o uplink_linux_amd64.zip && \
+	unzip -o uplink_linux_amd64.zip && \
+	chmod 755 uplink && \
+	sudo mv uplink /usr/local/bin/uplink && \
 #Wipe Temp Files
 	rm -rf /var/lib/apt/lists/* && \ 
 	apt-get clean && \
