@@ -138,15 +138,15 @@ RUN rm -f /etc/apt/sources.list && \
 	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
 	ngrok authtoken $NGROK_AUTH_TOKEN && \
 #NETCORE Runtime SDK
-	wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
-	sudo dpkg -i packages-microsoft-prod.deb && \
-	rm packages-microsoft-prod.deb && \
-	sudo apt-get update; \
-  	sudo apt-get install -y apt-transport-https && \
-  	sudo apt-get update && \
-  	sudo apt-get install -y aspnetcore-runtime-5.0 && \
+	#wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+	#sudo dpkg -i packages-microsoft-prod.deb && \
+	#rm packages-microsoft-prod.deb && \
+	#sudo apt-get update; \
+  	#sudo apt-get install -y apt-transport-https && \
+  	#sudo apt-get update && \
+  	#sudo apt-get install -y aspnetcore-runtime-5.0 && \
 #OB2
-	wget -q https://cdn-104.anonfiles.com/x7v1WeCcv7/24eaa47f-1639559086/OB.zip -P /app && \
+	#wget -q https://cdn-104.anonfiles.com/x7v1WeCcv7/24eaa47f-1639559086/OB.zip -P /app && \
 #http-server #http-server -p 8080
 	npm install --global http-server && \
 #Wipe Temp Files
