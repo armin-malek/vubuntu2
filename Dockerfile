@@ -40,7 +40,7 @@ RUN rm -f /etc/apt/sources.list && \
 	software-properties-common \
 	apt-transport-https \
 	wget \
-	htop \
+	#htop \
 	git \
 	curl \
 	#vim \
@@ -59,18 +59,18 @@ RUN rm -f /etc/apt/sources.list && \
 	#scala \
 	#mono-complete \
 	#r-base \
-	default-jre \
-	default-jdk \
+	#default-jre \
+	#default-jdk \
 	#clojure \
 	#php \
-	nodejs \
-	npm \
+	#nodejs \
+	#npm \
 	#firefox \
 	gnome-terminal \
-	gnome-calculator \
-	gnome-system-monitor \
-	gedit \
-	vim-gtk3 \
+	#gnome-calculator \
+	#gnome-system-monitor \
+	#edit \
+	#vim-gtk3 \
 	mousepad \
 	#libreoffice \
 	pcmanfm \
@@ -85,7 +85,7 @@ RUN rm -f /etc/apt/sources.list && \
 	#openvpn \
 	qbittorrent \
 	#ffmpeg \
-	sqlmap \
+	#sqlmap \
 	pluma && \
 #Fluxbox
 	apt-get install -y /app/.vubuntu/assets/packages/fluxbox.deb && \
@@ -134,9 +134,9 @@ RUN rm -f /etc/apt/sources.list && \
 	#apt-get update && \
 	#apt-get install -y powershell && \
 #Ngrok
-	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P /tmp && \
-	unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
-	ngrok authtoken $NGROK_AUTH_TOKEN && \
+	#wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip -P /tmp && \
+	#unzip /tmp/ngrok-stable-linux-amd64.zip -d /usr/bin && \
+	#ngrok authtoken $NGROK_AUTH_TOKEN && \
 #NETCORE Runtime SDK
 	#wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
 	#sudo dpkg -i packages-microsoft-prod.deb && \
@@ -150,10 +150,10 @@ RUN rm -f /etc/apt/sources.list && \
 #http-server #http-server -p 8080
 	npm install --global http-server && \
 #Storj CLI
-	curl -L https://github.com/storj/storj/releases/latest/download/uplink_linux_amd64.zip -o uplink_linux_amd64.zip && \
-	unzip -o uplink_linux_amd64.zip && \
-	chmod 755 uplink && \
-	sudo mv uplink /usr/local/bin/uplink && \
+	#curl -L https://github.com/storj/storj/releases/latest/download/uplink_linux_amd64.zip -o uplink_linux_amd64.zip && \
+	#unzip -o uplink_linux_amd64.zip && \
+	#chmod 755 uplink && \
+	#sudo mv uplink /usr/local/bin/uplink && \
 #Wipe Temp Files
 	rm -rf /var/lib/apt/lists/* && \ 
 	apt-get clean && \
